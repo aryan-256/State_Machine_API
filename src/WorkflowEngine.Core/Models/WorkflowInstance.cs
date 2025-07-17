@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace WorkflowEngine.Core.Models
 {
+    // Represents a record of a state transition in a workflow instance
     public class StateTransition
     {
         public Guid FromStateId { get; set; }
@@ -19,6 +20,7 @@ namespace WorkflowEngine.Core.Models
         }
     }
 
+    // Represents a running instance of a workflow definition
     public class WorkflowInstance
     {
         public Guid Id { get; set; }
@@ -28,7 +30,7 @@ namespace WorkflowEngine.Core.Models
         public DateTime CreatedAt { get; private set; }
         public DateTime? UpdatedAt { get; private set; }
         
-        // We don't want EF Core to track this
+        // Reference to the workflow definition (not persisted)
         public WorkflowDefinition? Definition { get; set; }
 
         public WorkflowInstance()
@@ -45,6 +47,7 @@ namespace WorkflowEngine.Core.Models
             CreatedAt = DateTime.UtcNow;
         }
 
+        // Updates the current state and records the transition
         public void UpdateState(Guid actionId, Guid newStateId)
         {
             var transition = new StateTransition(CurrentStateId, newStateId, actionId);

@@ -4,6 +4,7 @@ using WorkflowEngine.Api.Services;
 using WorkflowEngine.Core.Repositories;
 using WorkflowEngine.Core.Services;
 
+// Set up the web application builder and register services
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -19,7 +20,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// Add repositories as singletons for in-memory persistence
+// Add repositories as singletons for in-memory persistence (no external DB used)
 builder.Services.AddSingleton<IWorkflowDefinitionRepository, InMemoryWorkflowDefinitionRepository>();
 builder.Services.AddSingleton<IWorkflowInstanceRepository, InMemoryWorkflowInstanceRepository>();
 
@@ -27,6 +28,7 @@ builder.Services.AddSingleton<IWorkflowInstanceRepository, InMemoryWorkflowInsta
 builder.Services.AddScoped<IWorkflowDefinitionService, WorkflowDefinitionService>();
 builder.Services.AddScoped<IWorkflowInstanceService, WorkflowInstanceService>();
 
+// Build the app and configure middleware
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -38,7 +40,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Map our workflow API endpoints
+// Map workflow-related endpoints (definitions and instances)
 app.MapWorkflowDefinitionEndpoints();
 app.MapWorkflowInstanceEndpoints();
 
