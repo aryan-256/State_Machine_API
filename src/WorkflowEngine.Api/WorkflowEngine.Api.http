@@ -1,0 +1,117 @@
+@host = http://localhost:5000
+
+### Get all workflow definitions
+GET {{host}}/api/workflow-definitions
+Accept: application/json
+
+### Create a new workflow definition
+POST {{host}}/api/workflow-definitions
+Content-Type: application/json
+
+{
+  "name": "Document Approval Process",
+  "description": "A workflow for document review and approval",
+  "states": [
+    {
+      "id": "9f15b2c5-c8b9-4b90-9c02-7a46445a8b76",
+      "name": "Draft",
+      "isInitial": true,
+      "isFinal": false,
+      "isEnabled": true,
+      "description": "Document is in draft state"
+    },
+    {
+      "id": "6a3e7fb3-8e7b-49b3-9edd-36405f9c1a69",
+      "name": "Under Review",
+      "isInitial": false,
+      "isFinal": false,
+      "isEnabled": true,
+      "description": "Document is being reviewed"
+    },
+    {
+      "id": "24b131a8-e62c-4b04-b726-0ceba09d6c6f",
+      "name": "Approved",
+      "isInitial": false,
+      "isFinal": true,
+      "isEnabled": true,
+      "description": "Document has been approved"
+    },
+    {
+      "id": "d4f95b4a-9ef5-41b8-b05d-8c19fbde7e4f",
+      "name": "Rejected",
+      "isInitial": false,
+      "isFinal": true,
+      "isEnabled": true,
+      "description": "Document has been rejected"
+    }
+  ],
+  "actions": [
+    {
+      "id": "51c8a308-8854-492c-8790-4e68e4e91052",
+      "name": "Submit for Review",
+      "isEnabled": true,
+      "fromStateIds": [
+        "9f15b2c5-c8b9-4b90-9c02-7a46445a8b76"
+      ],
+      "toStateId": "6a3e7fb3-8e7b-49b3-9edd-36405f9c1a69",
+      "description": "Submit the document for review"
+    },
+    {
+      "id": "9ea7651c-7bb1-4158-ac98-9e2f24bc288a",
+      "name": "Approve",
+      "isEnabled": true,
+      "fromStateIds": [
+        "6a3e7fb3-8e7b-49b3-9edd-36405f9c1a69"
+      ],
+      "toStateId": "24b131a8-e62c-4b04-b726-0ceba09d6c6f",
+      "description": "Approve the document"
+    },
+    {
+      "id": "68d2af0e-d0bc-4d1c-9534-5fa75bd0cb3f",
+      "name": "Reject",
+      "isEnabled": true,
+      "fromStateIds": [
+        "6a3e7fb3-8e7b-49b3-9edd-36405f9c1a69"
+      ],
+      "toStateId": "d4f95b4a-9ef5-41b8-b05d-8c19fbde7e4f",
+      "description": "Reject the document"
+    },
+    {
+      "id": "f0844528-bdf1-4bcf-98de-10b12824e97d",
+      "name": "Request Changes",
+      "isEnabled": true,
+      "fromStateIds": [
+        "6a3e7fb3-8e7b-49b3-9edd-36405f9c1a69"
+      ],
+      "toStateId": "9f15b2c5-c8b9-4b90-9c02-7a46445a8b76",
+      "description": "Request changes to the document"
+    }
+  ]
+}
+
+### Get a specific workflow definition
+# Replace {id} with an actual workflow definition ID after creating one
+GET {{host}}/api/workflow-definitions/00000000-0000-0000-0000-000000000000
+
+### Create a new workflow instance
+# Replace {definitionId} with an actual workflow definition ID after creating one
+POST {{host}}/api/workflow-instances
+Content-Type: application/json
+
+{
+  "definitionId": "00000000-0000-0000-0000-000000000000"
+}
+
+### Get all workflow instances
+GET {{host}}/api/workflow-instances
+
+### Get a specific workflow instance
+# Replace {id} with an actual workflow instance ID after creating one
+GET {{host}}/api/workflow-instances/00000000-0000-0000-0000-000000000000
+
+### Execute an action on an instance
+# Replace {instanceId} and {actionId} with actual IDs after creating an instance and getting its available actions
+POST {{host}}/api/workflow-instances/00000000-0000-0000-0000-000000000000/actions/00000000-0000-0000-0000-000000000000
+Content-Type: application/json
+
+{}

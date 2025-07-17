@@ -1,0 +1,12 @@
+/home/aryan_256/repos/State_Machine_API/src/WorkflowEngine.Core/obj/Debug/net8.0/WorkflowEngine.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/aryan_256/repos/State_Machine_API/src/WorkflowEngine.Core/obj/Debug/net8.0/WorkflowEngine.Core.AssemblyInfoInputs.cache
+/home/aryan_256/repos/State_Machine_API/src/WorkflowEngine.Core/obj/Debug/net8.0/WorkflowEngine.Core.AssemblyInfo.cs
+/home/aryan_256/repos/State_Machine_API/src/WorkflowEngine.Core/obj/Debug/net8.0/WorkflowEngine.Core.csproj.CoreCompileInputs.cache
+/home/aryan_256/repos/State_Machine_API/src/WorkflowEngine.Core/obj/Debug/net8.0/WorkflowEngine.Core.sourcelink.json
+/home/aryan_256/repos/State_Machine_API/src/WorkflowEngine.Core/bin/Debug/net8.0/WorkflowEngine.Core.deps.json
+/home/aryan_256/repos/State_Machine_API/src/WorkflowEngine.Core/bin/Debug/net8.0/WorkflowEngine.Core.dll
+/home/aryan_256/repos/State_Machine_API/src/WorkflowEngine.Core/bin/Debug/net8.0/WorkflowEngine.Core.pdb
+/home/aryan_256/repos/State_Machine_API/src/WorkflowEngine.Core/obj/Debug/net8.0/WorkflowEngine.Core.dll
+/home/aryan_256/repos/State_Machine_API/src/WorkflowEngine.Core/obj/Debug/net8.0/refint/WorkflowEngine.Core.dll
+/home/aryan_256/repos/State_Machine_API/src/WorkflowEngine.Core/obj/Debug/net8.0/WorkflowEngine.Core.pdb
+/home/aryan_256/repos/State_Machine_API/src/WorkflowEngine.Core/obj/Debug/net8.0/ref/WorkflowEngine.Core.dll
